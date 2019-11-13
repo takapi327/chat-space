@@ -1,0 +1,24 @@
+.main-chat
+  .main-header
+    .main-header__box
+      .main-header__box__name group-name
+      .main-header__box__menber-list menber-list:
+      .main-header__box__menber-list__menber menber
+    .main-header__edit-btn Edit
+
+  .messages
+    .messages-box
+      .messages-box__name name
+      .messages-box__day day
+    .messages__message message
+
+  .form
+    .form-box
+      .form-box__tag
+        %input.input-message{:name => "message", :placeholder => "type a message", :type => "message", :value => ""}/
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input.input-image{type: "file"}
+      .form-box__send-btn
+        %button.input-send{ :name => "send", :type => "button", :onclic => ""}/
+        Send
