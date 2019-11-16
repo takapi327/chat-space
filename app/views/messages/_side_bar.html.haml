@@ -5,11 +5,14 @@
         = current_user.name
       .header__icon
         %ul
-          = link_to "#" do
-            %i.ffas.fa-edit
+          = link_to new_group_path(current_user) do
+            %i.fas.fa-edit
           = link_to edit_user_path(current_user) do
             %i.fa.fa-cog
   .groups
-    .groups__box
-      .groups__name name
-      .groups__message message
+    - current_user.groups.each do |group|
+      .groups__box
+        = link_to group_messages_path(group) do
+          .groups__name
+            = group.name
+          .groups__message message
