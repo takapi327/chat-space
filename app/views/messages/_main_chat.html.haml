@@ -1,24 +1,25 @@
 .main-chat
   .main-header
     .main-header__box
-      .main-header__box__name group-name
+      .main-header__box__name
+        = @group.name
       .main-header__box__menber-list menber-list:
-      .main-header__box__menber-list__menber menber
-    .main-header__edit-btn Edit
+      - @group.users.each do |user|
+        .main-header__box__menber-list__menber
+          = user.name
+    = link_to edit_group_path(@group) do
+      .main-header__edit-btn Edit
 
   .messages
-    .messages-box
-      .messages-box__name name
-      .messages-box__day day
-    .messages__message message
+    = render @messages
 
   .form
     .form-box
       .form-box__tag
-        %input.input-message{:name => "message", :placeholder => "type a message", :type => "message", :value => ""}/
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input.input-image{type: "file"}
-      .form-box__send-btn
-        %button.input-send{ :name => "send", :type => "button", :onclic => ""}/
-        Send
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: 'input-message', placeholder: 'type a message'
+          = f.label :image, class: 'input-box__image' do
+            = icon('fas', 'image')
+            = f.file_field :image, class: 'input-image'
+          .form-box__send-btn
+            = f.submit 'Send', class: 'input-send'

@@ -15,4 +15,5 @@
         = link_to group_messages_path(group) do
           .groups__name
             = group.name
-          .groups__message message
+          .groups__message
+            = group.show_last_message

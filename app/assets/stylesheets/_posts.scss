@@ -57,18 +57,29 @@
            padding: 35px 0 15px;
            font-size: 20px;
            color: #333333;
+           display: flex;
          }
          &__box__menber-list{
           font-size: 12px;
           color: $mainGray;
           float: left;
+          position: relative;
+          top: -10px;
+          right: 20px;
          }
          &__box__menber-list__menber{
           font-size: 12px;
           color: $mainGray;
+          position: relative;
+          top: -10px;
+          left: -20px;
+          padding-left: 5px;
+          float: left;
          }
          &__edit-btn{
-          padding: 20px 20px;
+          position: relative;
+          top: 10px;
+          padding: 10px 15px;
           margin: 20px 0;
           border: solid 1px $blue;
           color: $blue;
@@ -81,7 +92,9 @@
          margin: 0 auto;
          .messages-box{
            padding-top: 46px; 
-           display: flex;
+           position: relative;
+           bottom: 20px;
+           right: 20px;
          &__name{
            padding-bottom: 10px;
            font-size: 16px;
@@ -92,13 +105,16 @@
           font-size: 12px;
           color: $mainGray;
           padding: 0 10px;
+          position: relative;
+          left: 40px;
+          bottom: 25px;
          }
-        }
         &__message{
           font-size: 14px;
           color: #434A54;
           clear: both;
         }
+       }
       }
     }
     .form{
@@ -140,8 +156,8 @@
           background-color: #38AEF0;
           color: $White;
           position: relative;
-          top: 1px;
-          right: 250px;
+          top: -52px;
+          left: 1050px;
           height: 50px;
           width: 100px;
           font-size: 15px;
