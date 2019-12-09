@@ -1,58 +1,70 @@
 .wrapper{
   display: flex;
+  width: 100vw;
+  height: 100vh;
     .side-chat{
-      width: 300px;
+      width: 250px;
       height: 100vh;
-    }
-       .header{
-          background-color: #253141;
-          align-items: center;
-          padding: 0 20px;
-          height: 100px;
+      .header{
+        background-color: #253141;
+        align-items: center;
+        height: 100px;
+        display: flex;
+        position: fixed;
+        width: 250px;
+        &__box {
           display: flex;
-          &__box {
-           display: flex;
-            justify-content: space-between;
-            width: 100%;
-            font-weight: bold;
-          }
-          &__name {
-            font-size: 16px;
-            color: $White;
-            align-items: center;
-          }
-          &__icon {
-            color: $White;
-            display: flex;
-          }
+          justify-content: space-between;
+          width: 100%;
+          font-weight: bold;
         }
-        .groups{
-          background-color: #2f3e51;
-          height: calc(100% - 100px);
-          &__box {
-            padding: 20px 20px 40px;
-            font-weight: bold;
-          }
-          &__name {
-            font-size: 15px;
-            color: $White;
-            align-items: center;
-          }
-          &__message {
-            font-size: 11px;
-            color: $White;
-            align-items: center;
-          }
+        &__name {
+          font-size: 16px;
+          color: $White;
+          align-items: center;
+          padding: 0px 10px;
         }
+        &__icon {
+          color: $White;
+          display: flex;
+          padding: 0px 10px;
+        }
+      }
+      .groups{
+        background-color: #2f3e51;
+        height: calc(100% - 100px);
+        position: fixed;
+        top: 100px;
+        width: 250px;
+        &__box {
+          padding: 20px 20px 40px;
+          font-weight: bold;
+        }
+        &__name {
+          font-size: 15px;
+          color: $White;
+          align-items: center;
+        }
+        &__message {
+          font-size: 11px;
+          color: $White;
+          align-items: center;
+        }
+      }
+    }
     .main-chat{
-      width: 100%;
+      width: calc( 100vw - 250px);
       height: 100vh;
        .main-header{
          display: flex;
          justify-content: space-between;
          padding: 0 40px 0;
          height: 100px;
+         width: 78vw;
          border-bottom: solid 1px #eeeeee;
+         position: fixed;
+         background-color: #fff;
+         z-index: 1;
          &__box__name {
            padding: 35px 0 15px;
            font-size: 20px;
@@ -87,33 +99,34 @@
        }
        .messages{
          background: #fafafa;
-         height: calc(100% - 100px);
-         padding: 0 40px;
-         margin: 0 auto;
+         height: calc(100vh - 100px);
+         padding: 0px 40px;
+         margin: 100px 0px 90px;
+         overflow: scroll;
          .messages-box{
            padding-top: 46px; 
            position: relative;
            bottom: 20px;
            right: 20px;
-         &__name{
-           padding-bottom: 10px;
-           font-size: 16px;
-           color: #434A54;
-           font-weight: bold;
-         }
-         &__day{
-          font-size: 12px;
-          color: $mainGray;
-          padding: 0 10px;
-          position: relative;
-          left: 40px;
-          bottom: 25px;
-         }
-        &__message{
-          font-size: 14px;
-          color: #434A54;
-          clear: both;
-        }
+          &__name{
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: #434A54;
+            font-weight: bold;
+          }
+          &__day{
+            font-size: 12px;
+            color: $mainGray;
+            padding: 0 10px;
+            position: relative;
+            left: 40px;
+            bottom: 25px;
+          }
+          &__message{
+            font-size: 14px;
+            color: #434A54;
+            clear: both;
+          }
        }
       }
     }
