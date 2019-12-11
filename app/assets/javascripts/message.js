@@ -1,9 +1,34 @@
 $(function(){
 
+  var reloadMessages = function() {
+
+    last_message_id = $('.messages-box:last').data("id");
+
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+
+    .done(function(messages) {
+      var insertHTML = '';
+      $.each(messages, function(i, message) {
+        insertHTML += buildHTML(message)
+      });
+      $('.messages').append(insertHTML);
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+
+
 
   function buildHTML(message){
     if(message.image){
-      var html = `<div class="messages-box">
+      var html = `<div class="messages-box" data-id=${message.id}>
                     <div class="messages-box__name">
                       ${message.user_name}
                     </div>
@@ -18,7 +43,7 @@ $(function(){
                     </div>
                   </div>`
     } else {
-      var html = `<div class="messages-box">
+      var html = `<div class="messages-box" data-id=${message.id}>
                     <div class="messages-box__name">
                       ${message.user_name}
                     </div>
@@ -59,7 +84,8 @@ $(function(){
       alert('error');
     })
   });
+  setInterval(reloadMessages, 4000);
 });
 
-});
+
 
