@@ -1,27 +1,28 @@
 $(function(){
 
   var reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      last_message_id = $('.messages-box:last').data("id");
 
-    last_message_id = $('.messages-box:last').data("id");
+      $.ajax({
+        url: "api/messages",
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
 
-    $.ajax({
-      url: "api/messages",
-      type: 'GET',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-
-    .done(function(messages) {
-      var insertHTML = '';
-      $.each(messages, function(i, message) {
-        insertHTML += buildHTML(message)
+      .done(function(messages) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('error')
       });
-      $('.messages').append(insertHTML);
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-    })
-    .fail(function() {
-      alert('error')
-    });
+    }
   };
 
 
