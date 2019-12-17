@@ -28,7 +28,7 @@ set :keep_releases, 5
 set :linked_files, %w{ config/secrets.yml }
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 
-desc 'upload secrets.yml'
+  desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
@@ -39,4 +39,3 @@ desc 'upload secrets.yml'
   end
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
-end
