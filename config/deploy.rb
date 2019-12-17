@@ -28,6 +28,12 @@ set :keep_releases, 5
 set :linked_files, %w{ config/secrets.yml }
 # デプロイ処理が終わった後、Unicornを再起動するための記述
 
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+
   desc 'upload secrets.yml'
   task :upload do
     on roles(:app) do |host|
@@ -39,3 +45,4 @@ set :linked_files, %w{ config/secrets.yml }
   end
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
+end
