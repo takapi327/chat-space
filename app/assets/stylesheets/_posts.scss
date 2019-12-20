@@ -128,29 +128,35 @@
         // margin: 100px 0px 90px;
         overflow: scroll;
         .messages-box{
-          padding-top: 46px; 
-          position: relative;
-          bottom: 20px;
-          right: 20px;
-          display: flex;
-        &__name{
-          padding-bottom: 10px;
-          font-size: 16px;
-          color: #434A54;
-          font-weight: bold;
-        }
-        &__day{
-          font-size: 12px;
-          color: $mainGray;
-          padding: 0 10px;
+          padding-bottom: 40px; 
           // position: relative;
-          // left: 40px;
-          // bottom: 25px;
+          // bottom: 20px;
+          // right: 20px;
+        .messages-box__info{
+          display: flex;
+          margin-bottom: 10px;
+          .messages-box__name{
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: #434A54;
+            font-weight: bold;
+          }
+          .messages-box__day{
+            font-size: 12px;
+            color: $mainGray;
+            padding: 0 10px;
+            // position: relative;
+            // left: 40px;
+            // bottom: 25px;
+          }
         }
-        &__message{
+        .messages-box__message{
           font-size: 14px;
           color: #434A54;
-          clear: both;
+          margin-bottom: 10px;
+          // position: relative;
+          // top: 25px;
+          // right: 145px;
         }
       }
     }

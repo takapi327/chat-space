@@ -3,11 +3,13 @@ $(function(){
   function buildHTML(message){
     if(message.image){
       var html = `<div class="messages-box" data-id=${message.id}>
-                    <div class="messages-box__name">
-                      ${message.user_name}
-                    </div>
-                    <div class="messages-box__day">
-                      ${message.create}
+                    <div class="messages-box__info">
+                      <div class="messages-box__name">
+                        ${message.user_name}
+                      </div>
+                      <div class="messages-box__day">
+                        ${message.create}
+                      </div>
                     </div>
                     <div class="messages-box__message">
                       <p class="messages-box__messagee__content">
@@ -18,11 +20,13 @@ $(function(){
                   </div>`
     } else {
       var html = `<div class="messages-box" data-id=${message.id}>
-                    <div class="messages-box__name">
-                      ${message.user_name}
-                    </div>
-                    <div class="messages-box__day">
-                      ${message.create}
+                    <div class="messages-box__info">
+                      <div class="messages-box__name">
+                        ${message.user_name}
+                      </div>
+                      <div class="messages-box__day">
+                        ${message.create}
+                      </div>
                     </div>
                     <div class="messages-box__message">
                       <p class="messages-box__messagee__content">
