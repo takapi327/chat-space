@@ -75,7 +75,7 @@ $(function(){
     .done(function(messages) {
       if( messages.length  !== 0 ){
         var insertHTML = '';
-        $.each(messages, function(i, message) {
+        messages.forEach(function(message) {
           insertHTML += buildHTML(message)
         });
         $('.messages').append(insertHTML);
