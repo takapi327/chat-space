@@ -6,9 +6,11 @@
       .header__icon
         %ul
           = link_to new_group_path(current_user) do
-            %i.fas.fa-edit
+            -# %i.fas.fa-edit
+            = fa_icon 'edit', class: 'icon'
           = link_to edit_user_path(current_user) do
-            %i.fa.fa-cog
+            -# %i.fa.fa-cog
+            = fa_icon 'cog', class: 'icon'
   .groups
     - current_user.groups.each do |group|
       .groups__box

@@ -1,182 +1,201 @@
 .wrapper{
+  // display: flex;
+  // width: 100vw;
+  // height: 100vh;
   display: flex;
-  width: 100vw;
-  height: 100vh;
-    .side-chat{
-      width: 250px;
-      height: 100vh;
-      .header{
-        background-color: #253141;
-        align-items: center;
-        height: 100px;
+  .side-chat{
+    width: 300px;
+    // height: 100vh;
+    float: left;
+    .header{
+      background-color: #253141;
+      height: 100px;
+      display: flex;
+      position: fixed;
+      padding: 0 20px;
+      align-items: center;
+      width: 300px;
+      &__box {
         display: flex;
-        position: fixed;
-        width: 250px;
-        &__box {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-          font-weight: bold;
-        }
-        &__name {
-          font-size: 16px;
-          color: $White;
-          align-items: center;
-          padding: 0px 10px;
-        }
-        &__icon {
-          color: $White;
-          display: flex;
-          padding: 0px 10px;
-        }
+        justify-content: space-between;
+        width: 100%;
+        font-weight: bold;
       }
-      .groups{
-        background-color: #2f3e51;
-        height: calc(100% - 100px);
-        position: fixed;
-        top: 100px;
-        width: 250px;
-        &__box {
-          padding: 20px 20px 40px;
-          font-weight: bold;
-        }
-        &__name {
-          font-size: 15px;
-          color: $White;
-          align-items: center;
-        }
-        &__message {
-          font-size: 11px;
-          color: $White;
-          align-items: center;
-        }
+      &__name {
+        font-size: 16px;
+        color: $White;
+        align-items: center;
+      }
+      &__icon {
+        color: $White;
+        display: flex;
+        margin-left: 0.3rem;
+        font-size: inherit;
+      }
+      // .fas.fa-edit{
+      //   color: #ffffff;
+      //   font-size: inherit;
+      //   text-rendering: auto;
+      //   font: normal;
+      // }
+      // .fa.fa-cog{
+      //   color: #ffffff;
+      //   font-size: inherit;
+      //   text-rendering: auto;
+      // }
+      .icon{
+        color: white;
+        text-decoration	:none;
       }
     }
-    .main-chat{
-      width: calc( 100vw - 250px);
-      height: 100vh;
-       .main-header{
-         display: flex;
-         justify-content: space-between;
-         padding: 0 40px 0;
-         height: 100px;
-         width: 78vw;
-         border-bottom: solid 1px #eeeeee;
-         position: fixed;
-         background-color: #fff;
-         z-index: 1;
-         &__box__name {
-           padding: 35px 0 15px;
-           font-size: 20px;
-           color: #333333;
-           display: flex;
-         }
-         &__box__menber-list{
+    .groups{
+      background-color: #2f3e51;
+      height: calc(100% - 100px);
+      position: fixed;
+      top: 100px;
+      width: 300px;
+      &__box {
+        padding: 20px 20px 40px;
+        font-weight: bold;
+      }
+      &__name {
+        font-size: 15px;
+        color: $White;
+        align-items: center;
+      }
+      &__message {
+        font-size: 11px;
+        color: $White;
+        align-items: center;
+      }
+    }
+  }
+  .main-chat{
+    width: calc( 100vw - 300px);
+    // height: 100vh;
+    float: left;
+      .main-header{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 40px;
+        height: 100px;
+        border-bottom: solid 1px #eeeeee;
+        .main-header__box{
+          margin-top: 35px;
+          .main-header__box__name {
+            font-size: 20px;
+            color: #333333;
+            margin-bottom: 15px;
+          }
+          .main-header__box__menber-list{
           font-size: 12px;
           color: $mainGray;
-          float: left;
+          display: flex;
           position: relative;
-          top: -10px;
-          right: 20px;
-         }
-         &__box__menber-list__menber{
+          // top: -10px;
+          // right: 20px;
+          }
+          .main-header__box__menber-list__menber{
           font-size: 12px;
           color: $mainGray;
           position: relative;
-          top: -10px;
-          left: -20px;
+          top: -15px;
+          left: 45px;
           padding-left: 5px;
           float: left;
-         }
-         &__edit-btn{
+           }
+      }
+        .main-header__edit-btn{
+          padding: 0 20px;
+          height: 40px;
+          line-height: 40px;
+          position: absolute;
+          right: 40px;
+          margin-top: 30px;
+          border: solid 1px $light_blue;
+            .btn{
+            text-decoration	:none;
+            color: $light_blue;
+            text-align: center;
+            }
+          // width: 72px;
+        }
+      }
+      .messages{
+        background: #fafafa;
+        height: calc(100vh - 190px);
+        padding: 46px 40px;
+        // margin: 100px 0px 90px;
+        overflow: scroll;
+        .messages-box{
+          padding-top: 46px; 
           position: relative;
-          top: 10px;
-          padding: 10px 15px;
-          margin: 20px 0;
-          border: solid 1px $blue;
-          color: $blue;
-         }
-       }
-       .messages{
-         background: #fafafa;
-         height: calc(100vh - 100px);
-         padding: 0px 40px;
-         margin: 100px 0px 90px;
-         overflow: scroll;
-         .messages-box{
-           padding-top: 46px; 
-           position: relative;
-           bottom: 20px;
-           right: 20px;
-          &__name{
-            padding-bottom: 10px;
-            font-size: 16px;
-            color: #434A54;
-            font-weight: bold;
-          }
-          &__day{
-            font-size: 12px;
-            color: $mainGray;
-            padding: 0 10px;
-            position: relative;
-            left: 40px;
-            bottom: 25px;
-          }
-          &__message{
-            font-size: 14px;
-            color: #434A54;
-            clear: both;
-          }
-       }
+          bottom: 20px;
+          right: 20px;
+        &__name{
+          padding-bottom: 10px;
+          font-size: 16px;
+          color: #434A54;
+          font-weight: bold;
+        }
+        &__day{
+          font-size: 12px;
+          color: $mainGray;
+          padding: 0 10px;
+          position: relative;
+          left: 40px;
+          bottom: 25px;
+        }
+        &__message{
+          font-size: 14px;
+          color: #434A54;
+          clear: both;
+        }
       }
     }
     .form{
       background-color: #ddd;
-      height: 90px;
-      position:fixed;
+      padding: 20px 40px;
+      position: relative;
       bottom: 0;
-      width: 100vw;
-      .form-box{
-        padding: 10px;
+      .new_message{
         display: flex;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-      &__tag{
-        input::placeholder {
-        color: #434A54;
-        font-size: 16px;
-        }
-        .input-message{
-          height: 50px;
-          padding: 0 10px;
-          width: 70vw;
-        }
-        label{
+        .input-box{
+          width: 100%;
           position: relative;
-          top: 0;
-          right: 50px;
-          z-index: 1;
-          cursor: pointer;
-        }
-        .input-image{
-          visibility:hidden;
-          width: 1%;
-        }
-       }
-      &__send-btn{
-        .input-send{
-          background-color: #38AEF0;
-          color: $White;
-          position: relative;
-          top: -52px;
-          left: 1050px;
-          height: 50px;
-          width: 100px;
-          font-size: 15px;
-          cursor: pointer;
+          display: flex;
+          .input-box__text{
+            height: 50px;
+            padding: 0 40px 0 10px;
+            width: 100%;
+            color: #434a54;
+            border-style: none;
+          }
+          .input-box__image{
+            font-size: 1.3rem;
+              position: absolute;
+              top: 10px;
+              right: 120px;
+              cursor: pointer;
+            .input-box__image__file{
+              display: none;
+            }
+          }
+          .input-send{
+            width: 100px;
+            height: 50px;
+            padding: 0 30px;
+            margin-left: 15px;
+            background-color: #38AEF0;
+            color: $White;
+            cursor: pointer;
+          }
         }
       }
-       }
-     }
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
 }

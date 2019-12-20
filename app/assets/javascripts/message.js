@@ -1,32 +1,5 @@
 $(function(){
 
-  var reloadMessages = function() {
-    if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      last_message_id = $('.messages-box:last').data("id");
-
-      $.ajax({
-        url: "api/messages",
-        type: 'GET',
-        dataType: 'json',
-        data: {id: last_message_id}
-      })
-
-      .done(function(messages) {
-        var insertHTML = '';
-        $.each(messages, function(i, message) {
-          insertHTML += buildHTML(message)
-        });
-        $('.messages').append(insertHTML);
-        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-      })
-      .fail(function() {
-        alert('error')
-      });
-    }
-  };
-
-
-
   function buildHTML(message){
     if(message.image){
       var html = `<div class="messages-box" data-id=${message.id}>
@@ -85,7 +58,34 @@ $(function(){
       alert('error');
     })
   });
-  setInterval(reloadMessages, 4000);
+
+  var reloadMessages = function() {
+    last_message_id = $('.messages-box:last').data("id");
+
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if( messages.length  !== 0 ){
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error')
+    });
+  };
+
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    setInterval(reloadMessages, 7000);
+  }
 });
 
 
