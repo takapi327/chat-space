@@ -87,24 +87,20 @@
             color: #333333;
             margin-bottom: 15px;
           }
+        }
+        .main-header__box__info{
+          display: flex;
           .main-header__box__menber-list{
           font-size: 12px;
           color: $mainGray;
-          display: flex;
-          position: relative;
-          // top: -10px;
-          // right: 20px;
           }
           .main-header__box__menber-list__menber{
           font-size: 12px;
           color: $mainGray;
-          position: relative;
-          top: -15px;
-          left: 45px;
           padding-left: 5px;
           float: left;
-           }
-      }
+          }
+        }
         .main-header__edit-btn{
           padding: 0 20px;
           height: 40px;

@@ -3,10 +3,11 @@
     .main-header__box
       .main-header__box__name
         = @group.name
-      .main-header__box__menber-list Member:
-      - @group.users.each do |user|
-        .main-header__box__menber-list__menber
-          = user.name
+      .main-header__box__info
+        .main-header__box__menber-list Member:
+        - @group.users.each do |user|
+          .main-header__box__menber-list__menber
+            = user.name
     .main-header__edit-btn
       = link_to 'Edit', edit_group_path(@group), class: 'btn'
 
