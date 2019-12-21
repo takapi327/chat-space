@@ -11,7 +11,7 @@
       background-color: #253141;
       height: 100px;
       display: flex;
-      position: fixed;
+      // position: fixed;
       padding: 0 20px;
       align-items: center;
       width: 300px;
@@ -50,12 +50,15 @@
     }
     .groups{
       background-color: #2f3e51;
-      height: calc(100% - 100px);
-      position: fixed;
-      top: 100px;
-      width: 300px;
+      height: calc(100vh - 100px);
+      // position: fixed;
+      // top: 100px;
+      // width: 300px;
+      padding: 20px 20px 0;
+      overflow: scroll;
       &__box {
-        padding: 20px 20px 40px;
+        // padding: 20px 20px 40px;
+        margin-bottom: 40px;
         font-weight: bold;
       }
       &__name {
@@ -74,129 +77,131 @@
     width: calc( 100vw - 300px);
     // height: 100vh;
     float: left;
-      .main-header{
-        display: flex;
-        justify-content: space-between;
-        padding: 0 40px;
-        height: 100px;
-        border-bottom: solid 1px #eeeeee;
-        .main-header__box{
-          margin-top: 35px;
-          .main-header__box__name {
-            font-size: 20px;
-            color: #333333;
-            margin-bottom: 15px;
-          }
-        }
-        .main-header__box__info{
-          display: flex;
-          .main-header__box__menber-list{
-          font-size: 12px;
-          color: $mainGray;
-          }
-          .main-header__box__menber-list__menber{
-          font-size: 12px;
-          color: $mainGray;
-          padding-left: 5px;
-          float: left;
-          }
-        }
-        .main-header__edit-btn{
-          padding: 0 20px;
-          height: 40px;
-          line-height: 40px;
-          position: absolute;
-          right: 40px;
-          margin-top: 30px;
-          border: solid 1px $light_blue;
-            .btn{
-            text-decoration	:none;
-            color: $light_blue;
-            text-align: center;
-            }
-          // width: 72px;
+    .main-header{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 100px;
+      border-bottom: solid 1px #eeeeee;
+      overflow: scroll;
+      .main-header__box{
+        margin-top: 35px;
+        .main-header__box__name {
+          font-size: 20px;
+          color: #333333;
+          margin-bottom: 15px;
         }
       }
-      .messages{
-        background: #fafafa;
-        height: calc(100vh - 190px);
-        padding: 46px 40px;
-        // margin: 100px 0px 90px;
-        overflow: scroll;
-        .messages-box{
-          padding-bottom: 40px; 
-          // position: relative;
-          // bottom: 20px;
-          // right: 20px;
-        .messages-box__info{
-          display: flex;
-          margin-bottom: 10px;
-          .messages-box__name{
-            padding-bottom: 10px;
-            font-size: 16px;
-            color: #434A54;
-            font-weight: bold;
-          }
-          .messages-box__day{
-            font-size: 12px;
-            color: $mainGray;
-            padding: 0 10px;
-            // position: relative;
-            // left: 40px;
-            // bottom: 25px;
-          }
+      .main-header__box__info{
+        display: flex;
+        .main-header__box__menber-list{
+        font-size: 12px;
+        color: $mainGray;
         }
-        .messages-box__message{
-          font-size: 14px;
-          color: #434A54;
-          margin-bottom: 10px;
-          // position: relative;
-          // top: 25px;
-          // right: 145px;
+        .main-header__box__menber-list__menber{
+        font-size: 12px;
+        color: $mainGray;
+        padding-left: 5px;
+        float: left;
         }
+      }
+      .main-header__edit-btn{
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px;
+        position: absolute;
+        right: 40px;
+        margin-top: 30px;
+        border: solid 1px $light_blue;
+          .btn{
+          text-decoration	:none;
+          color: $light_blue;
+          text-align: center;
+          }
+        // width: 72px;
       }
     }
-    .form{
-      background-color: #ddd;
-      padding: 20px 40px;
-      position: relative;
-      bottom: 0;
-      .new_message{
+    .messages{
+      background: #fafafa;
+      height: calc(100vh - 190px);
+      padding: 46px 40px;
+      // margin: 100px 0px 90px;
+      overflow: scroll;
+      .messages-box{
+        padding-bottom: 40px; 
+        // position: relative;
+        // bottom: 20px;
+        // right: 20px;
+      .messages-box__info{
         display: flex;
-        .input-box{
+        margin-bottom: 10px;
+        .messages-box__name{
+          padding-bottom: 10px;
+          font-size: 16px;
+          color: #434A54;
+          font-weight: bold;
+        }
+        .messages-box__day{
+          font-size: 12px;
+          color: $mainGray;
+          padding: 0 10px;
+          // position: relative;
+          // left: 40px;
+          // bottom: 25px;
+        }
+      }
+      .messages-box__message{
+        font-size: 14px;
+        color: #434A54;
+        margin-bottom: 10px;
+        // position: relative;
+        // top: 25px;
+        // right: 145px;
+      }
+    }
+  }
+  .form{
+    background-color: #ddd;
+    padding: 20px 40px;
+    // position: relative;
+    // bottom: 0;
+    height: 90px;
+    .new_message{
+      display: flex;
+      .input-box{
+        width: 100%;
+        position: relative;
+        display: flex;
+        .input-box__text{
+          height: 50px;
+          padding: 0 40px 0 10px;
           width: 100%;
-          position: relative;
-          display: flex;
-          .input-box__text{
-            height: 50px;
-            padding: 0 40px 0 10px;
-            width: 100%;
-            color: #434a54;
-            border-style: none;
-          }
-          .input-box__image{
-            font-size: 1.3rem;
-              position: absolute;
-              top: 10px;
-              right: 120px;
-              cursor: pointer;
-            .input-box__image__file{
-              display: none;
-            }
-          }
-          .input-send{
-            width: 100px;
-            height: 50px;
-            padding: 0 30px;
-            margin-left: 15px;
-            background-color: #38AEF0;
-            color: $White;
+          color: #434a54;
+          border-style: none;
+        }
+        .input-box__image{
+          font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 120px;
             cursor: pointer;
+          .input-box__image__file{
+            display: none;
           }
+        }
+        .input-send{
+          width: 100px;
+          height: 50px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: #38AEF0;
+          color: $White;
+          cursor: pointer;
         }
       }
     }
   }
+ }
 }
 
 * {
