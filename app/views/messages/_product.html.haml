@@ -1,0 +1,121 @@
+.product-page
+  .product-page__header
+    = image_tag 'fmarket_logo_red.svg', class: 'product-icon'
+  %section.product-page__main__wrapper
+    = form_for [@group, @message] do |f|
+      %h2.product-tittle
+        = "商品の情報を入力"
+      .form
+        .form__block
+          .sell-content
+            %h3.sell-image__tittle
+              出品画像
+              %span.require 必須
+              %p 最大10枚までアップロードできます
+            #image-box-10
+              .sell-image_box#box
+                = f.fields_for :images do |i|
+                  .input-area 
+                    = i.file_field :image, type: 'file', name: 'item[images_attributes][][image_url]', value: '', style: 'display:none', id: 'img-file'
+                    %label{for: 'img-file'}
+                      %pre 
+                        :preserve
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+          .sell-content__product
+            .product__name
+              %label
+                商品名
+                %span.require 必須
+              %div
+                = f.text_field :image, class: 'form__product__name', placeholder: '商品名(必須 40文字まで)'
+            .product__content
+              %label
+                商品の説明
+                %span.require 必須
+              %div
+                = f.text_field :image, class: 'form__product__name', placeholder: '商品の説明(必須1,000文字)(色,素材,重さ,定価,注意点など)例 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。)'
+          .sell-content__index.clearfix
+            %h3.index__tittle
+              商品の詳細
+            .index__box
+              .product__category__group
+              %label
+                カテゴリー
+                %span.require 必須
+              %div.select-box.box
+                %select#select1{:onchange => "selectboxChange();"}
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 要素1
+                  %option{:value => "2"} 要素2
+                  %option{:value => "3"} 要素3
+                  %option{:value => "4"} 要素4
+                  %option{:value => "5"} 要素5
+              .product__category__group
+              %label
+                商品の状態
+                %span.require 必須
+              %div.select-box.box
+                %select#select1{:onchange => "selectboxChange();"}
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 要素1
+                  %option{:value => "2"} 要素2
+                  %option{:value => "3"} 要素3
+                  %option{:value => "4"} 要素4
+                  %option{:value => "5"} 要素5
+          .sell-content__derivery.clearfix
+            %h3.index__tittle
+              配送について
+            .index__box
+              .product__category__group
+              %label
+                配送料の負担
+                %span.require 必須
+              %div.select-box.box
+                %select#select1{:onchange => "selectboxChange();"}
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 要素1
+                  %option{:value => "2"} 要素2
+                  %option{:value => "3"} 要素3
+                  %option{:value => "4"} 要素4
+                  %option{:value => "5"} 要素5
+              .product__category__group
+              %label
+                発送元の地域
+                %span.require 必須
+              %div.select-box.box
+                %select#select1{:onchange => "selectboxChange();"}
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 要素1
+                  %option{:value => "2"} 要素2
+                  %option{:value => "3"} 要素3
+                  %option{:value => "4"} 要素4
+                  %option{:value => "5"} 要素5
+              .product__category__group
+              %label
+                発送までの日数
+                %span.require 必須
+              %div.select-box.box
+                %select#select1{:onchange => "selectboxChange();"}
+                  %option{:value => ""} ---
+                  %option{:value => "1"} 要素1
+                  %option{:value => "2"} 要素2
+                  %option{:value => "3"} 要素3
+                  %option{:value => "4"} 要素4
+                  %option{:value => "5"} 要素5
+          .sell-content__index.clearfix
+            %h3.index__tittle
+              販売価格(300~9,999,999)
+            .index__box
+              .product__category__group
+              %label
+                価格
+                %span.require 必須
+          .sell-content__form__btn
+            %div
+              %p 禁止されている出品、行為を必ずご確認ください。
+              %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              %p また、出品をもちまして加盟店規約に同意したことになります。
+              = f.submit '出品する', class: 'form-btn'
+              .back-btn
+                = link_to 'もどる', '#'
